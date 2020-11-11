@@ -6,7 +6,7 @@ import com.yahoo.application.container.handler.Request;
 import com.yahoo.application.container.handler.Response;
 import com.yahoo.component.ComponentSpecification;
 import com.yahoo.config.provision.ApplicationName;
-import com.yahoo.container.http.filter.FilterChainRepository;
+import com.yahoo.jdisc.http.server.jetty.FilterChainRepository;
 import com.yahoo.jdisc.http.filter.SecurityRequestFilter;
 import com.yahoo.jdisc.http.filter.SecurityRequestFilterChain;
 import com.yahoo.vespa.athenz.api.AthenzDomain;

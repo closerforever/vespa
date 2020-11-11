@@ -1,16 +1,16 @@
 // Copyright 2017 Yahoo Holdings. Licensed under the terms of the Apache 2.0 license. See LICENSE in the project root.
-package com.yahoo.container.jdisc;
+package com.yahoo.jdisc.http.server.jetty;
 
 import com.yahoo.component.ComponentId;
 import com.yahoo.component.provider.ComponentRegistry;
 import com.yahoo.container.di.componentgraph.Provider;
-import com.yahoo.container.http.filter.FilterChainRepository;
+import com.yahoo.jdisc.http.server.jetty.FilterChainRepository;
 import com.yahoo.jdisc.application.BindingRepository;
 import com.yahoo.jdisc.http.ServerConfig;
 import com.yahoo.jdisc.http.filter.RequestFilter;
 import com.yahoo.jdisc.http.filter.ResponseFilter;
 import com.yahoo.jdisc.http.filter.SecurityRequestFilter;
-import com.yahoo.jdisc.http.server.FilterBindings;
+import com.yahoo.jdisc.http.server.jetty.FilterBindings;
 
 import java.util.ArrayList;
 import java.util.List;

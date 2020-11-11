@@ -9,15 +9,12 @@ import com.yahoo.component.provider.ComponentRegistry;
 import com.yahoo.concurrent.DaemonThreadFactory;
 import com.yahoo.config.ConfigInstance;
 import com.yahoo.config.subscription.ConfigInterruptedException;
-import com.yahoo.config.subscription.ConfigSubscriber;
 import com.yahoo.container.Container;
 import com.yahoo.container.QrConfig;
-import com.yahoo.container.core.ChainsConfig;
 import com.yahoo.container.core.config.HandlersConfigurerDi;
 import com.yahoo.container.di.CloudSubscriberFactory;
 import com.yahoo.container.di.config.Subscriber;
 import com.yahoo.container.di.config.SubscriberFactory;
-import com.yahoo.container.http.filter.FilterChainRepository;
 import com.yahoo.container.jdisc.component.Deconstructor;
 import com.yahoo.container.jdisc.messagebus.SessionCache;
 import com.yahoo.container.jdisc.metric.DisableGuiceMetric;
@@ -38,7 +35,6 @@ import com.yahoo.jrt.Supervisor;
 import com.yahoo.jrt.Transport;
 import com.yahoo.jrt.slobrok.api.Register;
 import com.yahoo.jrt.slobrok.api.SlobrokList;
-import java.util.logging.Level;
 import com.yahoo.log.LogSetup;
 import com.yahoo.messagebus.network.rpc.SlobrokConfigSubscriber;
 import com.yahoo.net.HostName;
@@ -81,13 +77,6 @@ public final class ConfiguredApplication implements Application {
     private final Optional<SlobrokConfigSubscriber> slobrokConfigSubscriber;
     private final SessionCache sessionCache;
 
-    //TODO: FilterChainRepository should instead always be set up in the model.
-    private final FilterChainRepository defaultFilterChainRepository =
-            new FilterChainRepository(new ChainsConfig(new ChainsConfig.Builder()),
-                                      new ComponentRegistry<>(),
-                                      new ComponentRegistry<>(),
-                                      new ComponentRegistry<>(),
-                                      new ComponentRegistry<>());
     private final OsgiFramework restrictedOsgiFramework;
     private HandlersConfigurerDi configurer;
     private ScheduledThreadPoolExecutor shutdownDeadlineExecutor;
@@ -337,7 +326,6 @@ public final class ConfiguredApplication implements Application {
                 bind(Metric.class).to(DisableGuiceMetric.class);
                 bind(OsgiFramework.class).toInstance(restrictedOsgiFramework);
                 bind(com.yahoo.jdisc.Timer.class).toInstance(timerSingleton);
-                bind(FilterChainRepository.class).toInstance(defaultFilterChainRepository);
                 bind(SessionCache.class).toInstance(sessionCache); // Needed by e.g. FeedHandler
             }
         });

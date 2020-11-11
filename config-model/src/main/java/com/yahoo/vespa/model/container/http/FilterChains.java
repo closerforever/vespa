@@ -20,7 +20,7 @@ public class FilterChains extends Chains<Chain<Filter>>  {
     public FilterChains(AbstractConfigProducer parent) {
         super(parent, "filters");
 
-        addChild(new SimpleComponent("com.yahoo.container.http.filter.FilterChainRepository"));
+        addChild(new SimpleComponent("com.yahoo.jdisc.http.server.jetty.FilterChainRepository"));
     }
 
     public boolean hasChain(ComponentId filterChain) {

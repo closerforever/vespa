@@ -13,7 +13,7 @@ import com.yahoo.jdisc.handler.ResponseHandler;
 import com.yahoo.jdisc.http.HttpRequest;
 import com.yahoo.jdisc.http.filter.RequestFilter;
 import com.yahoo.jdisc.http.filter.ResponseFilter;
-import com.yahoo.jdisc.http.server.FilterBindings;
+import com.yahoo.jdisc.http.server.jetty.FilterBindings;
 import com.yahoo.jdisc.http.server.jetty.FilterInvoker;
 import com.yahoo.jdisc.http.server.jetty.SimpleHttpClient.ResponseValidator;
 import com.yahoo.jdisc.http.server.jetty.TestDriver;

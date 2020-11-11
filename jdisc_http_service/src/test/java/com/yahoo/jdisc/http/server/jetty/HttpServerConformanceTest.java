@@ -8,7 +8,6 @@ import com.yahoo.jdisc.application.BindingRepository;
 import com.yahoo.jdisc.http.ServerConfig;
 import com.yahoo.jdisc.http.ServletPathsConfig;
 import com.yahoo.jdisc.http.guiceModules.ConnectorFactoryRegistryModule;
-import com.yahoo.jdisc.http.server.FilterBindings;
 import com.yahoo.jdisc.test.ServerProviderConformanceTest;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpVersion;

@@ -1,5 +1,5 @@
 // Copyright 2017 Yahoo Holdings. Licensed under the terms of the Apache 2.0 license. See LICENSE in the project root.
-package com.yahoo.container.http.filter;
+package com.yahoo.jdisc.http.server.jetty;
 
 import com.yahoo.component.AbstractComponent;
 import com.yahoo.component.ComponentId;
@@ -19,7 +19,6 @@ import com.yahoo.jdisc.http.filter.SecurityResponseFilter;
 import com.yahoo.jdisc.http.filter.SecurityResponseFilterChain;
 import com.yahoo.jdisc.http.filter.chain.RequestFilterChain;
 import com.yahoo.jdisc.http.filter.chain.ResponseFilterChain;
-import com.yahoo.processing.execution.chain.ChainRegistry;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,7 +26,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Logger;
 
-import static java.util.Collections.emptyList;
 import static java.util.stream.Collectors.toList;
 import static java.util.stream.Collectors.toSet;
 
@@ -198,4 +196,6 @@ public class FilterChainRepository extends AbstractComponent {
             throw new IllegalArgumentException("Unsupported filter type: " + filter.getClass().getName());
         }
     }
+
+    private static class ChainRegistry<T extends ChainedComponent> extends ComponentRegistry<Chain<T>> {}
 }

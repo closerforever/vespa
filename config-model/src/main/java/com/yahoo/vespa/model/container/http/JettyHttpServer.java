@@ -84,20 +84,19 @@ public class JettyHttpServer extends SimpleComponent implements ServerConfig.Pro
         }
     }
 
-    static ComponentModel providerComponentModel(final ComponentId parentId, String className) {
-        final ComponentSpecification classNameSpec = new ComponentSpecification(
-                className);
-        return new ComponentModel(new BundleInstantiationSpecification(
-                classNameSpec.nestInNamespace(parentId),
-                classNameSpec,
-                null));
-    }
 
-    public static final class FilterBindingsProviderComponent extends SimpleComponent {
+    private static class FilterBindingsProviderComponent extends SimpleComponent {
         public FilterBindingsProviderComponent(final ComponentId parentId) {
-            super(providerComponentModel(parentId, "com.yahoo.container.jdisc.FilterBindingsProvider"));
+            super(providerComponentModel(parentId, "com.yahoo.jdisc.http.server.jetty.FilterBindingsProvider", "jdisc_http_service"));
         }
 
+        static ComponentModel providerComponentModel(final ComponentId parentId, String className, String bundle) {
+            final ComponentSpecification classNameSpec = new ComponentSpecification(
+                    className);
+            return new ComponentModel(new BundleInstantiationSpecification(
+                    classNameSpec.nestInNamespace(parentId),
+                    classNameSpec,
+                    ComponentSpecification.fromString(bundle)));
+        }
     }
-
 }

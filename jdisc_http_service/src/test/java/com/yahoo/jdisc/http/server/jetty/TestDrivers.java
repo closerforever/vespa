@@ -9,11 +9,8 @@ import com.yahoo.jdisc.handler.RequestHandler;
 import com.yahoo.jdisc.http.ConnectorConfig;
 import com.yahoo.jdisc.http.ServerConfig;
 import com.yahoo.jdisc.http.ServletPathsConfig;
-import com.yahoo.jdisc.http.filter.RequestFilter;
-import com.yahoo.jdisc.http.filter.ResponseFilter;
 import com.yahoo.jdisc.http.guiceModules.ConnectorFactoryRegistryModule;
 import com.yahoo.jdisc.http.guiceModules.ServletModule;
-import com.yahoo.jdisc.http.server.FilterBindings;
 
 import java.io.IOException;
 import java.nio.file.Path;

@@ -8,7 +8,7 @@ import com.yahoo.config.model.deploy.TestProperties;
 import com.yahoo.config.model.provision.HostsXmlProvisioner;
 import com.yahoo.config.model.test.MockRoot;
 import com.yahoo.container.ComponentsConfig;
-import com.yahoo.container.jdisc.FilterBindingsProvider;
+import com.yahoo.jdisc.http.server.jetty.FilterBindingsProvider;
 import com.yahoo.jdisc.http.ConnectorConfig;
 import com.yahoo.vespa.model.container.ApplicationContainerCluster;
 import com.yahoo.vespa.model.container.ContainerCluster;
